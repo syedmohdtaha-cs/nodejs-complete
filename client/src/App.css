@@ -1,0 +1,52 @@
+.App {
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.col-4 {
+  flex: 0 0 calc(33.333% - 16px);
+  min-width: 320px;
+}
+
+.col-8 {
+  flex: 1;
+  min-width: 500px;
+}
+
+.case-form-card,
+.case-list-card {
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .col-4,
+  .col-8 {
+    flex: 1 1 100%;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 300px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

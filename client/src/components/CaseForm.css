@@ -1,0 +1,43 @@
+.case-form-container {
+  width: 100%;
+}
+
+.form-subtitle {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.case-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form-input,
+.form-dropdown {
+  width: 100%;
+}
+
+.form-actions {
+  margin-top: 8px;
+}
+
+.toast-container {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  z-index: 1000;
+}
+
