@@ -5,6 +5,9 @@ const cors = require("cors");
 const session = require("express-session");
 const MongoStore = require("connect-mongodb-session")(session);
 
+const { graphqlHTTP } = require("express-graphql");
+const graphqlSchema = require("./graphql/schema");
+const graphqlResolvers = require("./graphql/resolvers");
 // Load environment variables from .env file
 require("dotenv").config();
 
@@ -51,6 +54,16 @@ app.use(
 // API Routes
 app.use("/api/cases", casesRoutes);
 
+// GraphQL Routes
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: graphqlSchema,
+    rootValue: graphqlResolvers,
+    graphiql: true,
+  })
+);
+
 // Health check endpoint
 app.get("/api/health", (req, res) => {
   res.status(200).json({
@@ -88,10 +101,10 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(MONGODB_URI)
   .then(() => {
-    const server = app.listen(PORT, () => {
+    app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
     });
-    socket.init(server);
+    // socket.init(server);
   })
   .catch((err) => {
     console.log(err);
